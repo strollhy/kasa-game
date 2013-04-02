@@ -1,0 +1,40 @@
+/*** 
+ ***	AJAX REQUEST/RESPONSE 
+ ***
+ *** 	Hongyu Song--3/4/2013
+ ***
+ *** request/response is json format
+ *** response includes all information of the game
+ *** client just need to update all the information
+ *** 
+ ***/
+
+request function:
+	place(cardId)										/* place card, params: card id */
+	target(mode, player_id)								/* target a player, params: target mode, target player id */
+	choose(cardId, flag)								/* choose whether +10 or -10, params: cardId, flag '+' or '-' */
+	quit()												/* player quit the game, delete his cookie */
+	clear_game()										/* end of game, flush all memory */
+	add_player()										/* for debuging, arbitrarily add a player */
+
+
+response: {
+	'action': 'update',									/* response type */
+	'info': 'ingame',									/* whether user is in a game */
+	'score': 0,											/* score of the game */
+	'current': 1,										/* current player */
+	'next_one': 0,										/* who's next */
+	'your_mode':'place' ,                               /* your mode */
+	'your_HP' : 1,									    /* your HP */
+	'direction': 1,										/* turn direction, 1 for anticlockwise*/
+	'deck': ['23']										/* top card on deck */
+	'grave': ['42','KS']								/* top card on grave, card id & card value */
+	'your_seat': 0,										/* your absolute seat # in the game */
+	'players':[ 
+			{'name': 'p1', 'mode': 'place', 'status': 1, 'seat': 0, 'cards_id', cards}, 
+			{'name': 'p2', 'mode': 'wait', 'status': 1, 'seat': 1, 'cards_id'},		  
+			{'name': 'p3', 'mode': 'wait', 'status': 1, 'seat': 2, 'cards_id'},
+			{'name': 'p4', 'mode': 'wait', 'status': 1, 'seat': 3, 'cards_id'}
+	]
+
+}

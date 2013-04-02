@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="/css/main.css" />
+    <title>Kasa</title>
+  </head>
+  
+  <body>
+    
+    <div id="flag" style="display:none"><input id="plus" type="button" value="+"/><input id="minus" type="button" value="-"/> </div>
+
+    <div id="old-local-info"></div>
+  	<div id="interface">
+		<div class="player-name" data-playerId="2"><span id="p2" class="player-id"></span></div>
+		<div class="player-name" data-playerId="3"><img class="badges" style="width=30px;height=30px;" src="/images/swap.png"/><span id="p3"class="player-id"></span></div>
+		<div class="player-name" data-playerId="4"><img class="badges" style="width=30px;height=30px;" src="/images/swap.png"/><span id="p4"class="player-id"></span></div>
+		<div class="player-name" data-playerId="5"><img class="badges" style="width=30px;height=30px;" src="/images/swap.png"/><span id="p5" class="player-id"></span></div>
+		<div id="score"></div>
+		
+	<form method = "post">
+         <input class="outgame" type="button" onclick="start_game()" value="Start Game"/>
+         <input class="ingame" type="button" onclick="quit()" value="Quit Game" style="display:none"/>
+    </form>
+	</div>
+	
+    <div id="wrapper"></div>
+
+
+    <div id='error' style="color:white"/>
+  
+  
+  <script type="text/javascript" src="/js/ajax.js"></script>
+  <script type="text/javascript" src="/js/update.js"></script>        
+  <script type="text/javascript" src="/js/jquery-1.9.0.min.js"> </script>
+  <script type="text/javascript" src="/js/jQueryRotateCompressed.2.2.js"></script>
+  <script type="text/javascript" src="/js/application.js"></script>
+
+  <script type="text/javascript">
+    // initial
+    $('.player-id').bind('dblclick', function(event) {check($(this), $('#old-local-info').data('old-local-info'));})
+    $('.badges').css('display', 'none')
+    $('#plus').bind('click', function(event) {check($(this), $('#old-local-info').data('old-local-info'));})
+    $('#minus').bind('click', function(event) {check($(this), $('#old-local-info').data('old-local-info'));})
+  </script>
+
+ </body>
+
+
+</html>
